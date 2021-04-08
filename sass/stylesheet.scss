@@ -30,10 +30,18 @@ header {
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
-    // width: 1200px;
-    display: flex;
-    flex: 1;
- 
+    
+    @media (min-width: 768px) {
+        width: 750px;
+    }
+    
+    @media (min-width: 992px) {
+        width: 970px;
+    }
+    
+    @media (min-width: 1260px) {
+        width: 1200px;
+    }
 }
 // ----------------------------------------------------------------
 #top {
@@ -68,6 +76,7 @@ h1 {font-weight: 400;}
 
 .heading {
     background-color: $whitespace;
+    display: flex;
     justify-content: flex-end;
     align-items: center;
     padding-top: 20px;
@@ -80,7 +89,6 @@ h1 {font-weight: 400;}
     .site-logo {
         margin-left: 0%;
         margin-right: auto;
-        padding-right: 5vw;
         line-height: 0;
         height: inherit;
         img {
@@ -130,16 +138,20 @@ h1 {font-weight: 400;}
     }
 }
 // ---------------------------------------------------------
+.grey-span {
+    width: 100%;
+    background-color: $altspan;
+}
 
 .nav-bar{
     background-color: $altspan;
-    width: 100%;
+    display: flex;
     justify-content: center;
     list-style: none;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 0;
-
+    // padding: 0;
+    margin: 0 auto;
+    // border-right: 1px solid #0004;
+    // border-left: 1px solid #fff2;
     &>li {
         display:block;
         flex: 1;
@@ -148,15 +160,12 @@ h1 {font-weight: 400;}
         padding: 19px 0;
         text-align: center;
         line-height: 1;
-        border-right: 1px solid rgba(255,255,255,0.1);
-        border-left: 1px solid rgba(0,0,0,.25);
+        border-right: 1px solid #fff2;
+        border-left: 1px solid #0004;
     }
-    .fill{
-        flex:0.5;
-        &.right {border-left: 0;}
-        &.left {border-right: 0;}
+    &::before {content: ""; border-right: 1px solid #fff2;}
+    &::after {content: ""; border-left: 1px solid #0004;}
         
-    }
     a {
         color: #fff;
         text-decoration: none;
@@ -197,6 +206,8 @@ h1 {font-weight: 400;}
     background-color: black;
     flex-grow: 1;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     position: relative;
     color: #fff;
     line-height: 1;
@@ -204,7 +215,8 @@ h1 {font-weight: 400;}
     .content-container {
         width: 100%;
         height: 100%;
-        padding: 0 5vw;
+        padding: 0 5px;
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -235,7 +247,7 @@ h1 {font-weight: 400;}
         margin: 0 0 35px 0;
     }
     .btn {
-        padding: 5px 20px;
+        padding: 14px 20px;
         font-size: 1.25rem;
     }
     &.web .btn{ background-color: $web;}
