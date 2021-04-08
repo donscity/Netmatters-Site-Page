@@ -2,7 +2,7 @@ $altspan: #333645;
 $whitespace: #fff;
 
 
-
+// -----------------------------------------------------------------
 body {
     background-color: $whitespace;
     font-family: 'Poppins', sans-serif;
@@ -21,18 +21,20 @@ header {
 .section {
     margin-right: auto;
     margin-left: auto;
-    // padding-left: 15px;
-    // padding-right: 15px;
-    width: 1200px;
+    padding-left: 15px;
+    padding-right: 15px;
+    // width: 1200px;
     display: flex;
     flex: 1;
+ 
 }
-
+// ----------------------------------------------------------------
 .heading {
     background-color: $whitespace;
     justify-content: flex-end;
     align-items: center;
-    padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
     &>* {
         color: #fff;
         text-decoration: none;
@@ -41,7 +43,15 @@ header {
     .site-logo {
         margin-left: 0%;
         margin-right: auto;
+        padding-right: 5vw;
         line-height: 0;
+        height: inherit;
+        @media (max-width: 573px) {
+            max-width:60%;
+            img { 
+                padding-right:35%;
+            }
+        }
     }
     .btn {
         text-transform: uppercase;
@@ -53,13 +63,20 @@ header {
         border: 0px;
         color:#fff;
         background-color: #999aa2;
+        &.icon {
+            font-size: 1.5rem; 
+            background-color: transparent; 
+            color: #333645;
+            margin: 0;
+        }
         &.alt {background-color: #4183d7;}
     }
     .search {
         display: flex;
         input {
-            width: 240px;
+            max-width: 240px;
             border: 1.2px solid #999aa2;
+            border-right: 0;
             border-radius: 3px 0 0 3px;
             font-size: 0.9rem;
             text-transform: none;
@@ -69,8 +86,19 @@ header {
         button {
             padding-left: 20px;
             padding-right: 20px;
-            border-radius: 0 3px 3px 0;
+            border-radius: 3px 3px;
         }
+    }
+    @media (max-width: 767px) {
+        .search{
+            order: 1;
+            flex-basis: 100%;
+            padding-top: 8px;
+            margin: 0;
+            input {max-width:100%; width:100%}
+        }
+        flex-wrap: wrap;
+        .site-logo {padding:0;}
     }
     .menu {
         font-size: 0.7rem;
@@ -81,29 +109,32 @@ header {
         }
     }
 }
-.greyspan{
-    background-color: $altspan;
-    width: auto;
-}
-
-
+// ---------------------------------------------------------
 
 .nav-bar{
-    justify-content: space-between;
+    background-color: $altspan;
+    width: 100%;
+    justify-content: center;
     list-style: none;
     margin-top: 0;
     margin-bottom: 0;
     padding: 0;
-    border-left: 1px solid rgba(255,255,255,0.1);
-    border-right: 1px solid rgba(0,0,0,.25);
+
     &>li {
         display:block;
         flex: 1;
+        max-width: 200px;
         padding: 19px 0;
         text-align: center;
         line-height: 1;
         border-right: 1px solid rgba(255,255,255,0.1);
         border-left: 1px solid rgba(0,0,0,.25);
+    }
+    .fill{
+        flex:0.5;
+        &.right {border-left: 0;}
+        &.left {border-right: 0;}
+        
     }
     a {
         color: #fff;
@@ -137,4 +168,31 @@ header {
         color: #f62459;
     }
     &>li>ul {display:none}
+}
+
+
+
+
+@media (max-width: 767px) {
+    .xs {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .sm {
+        display: none;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1259px) {
+    .md {
+        display: none;
+    }
+}
+
+@media (min-width: 1260px) {
+    .lg {
+        display: none;
+    }
 }
