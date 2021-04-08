@@ -1,6 +1,13 @@
 $altspan: #333645;
 $whitespace: #fff;
 
+$web: #926fb1;
+$it: #4183d7;
+$telecoms: #d64541;
+$software: #67809f;
+$marketing: #2ecc71;
+$security: #f62459;
+
 
 // -----------------------------------------------------------------
 body {
@@ -29,6 +36,36 @@ header {
  
 }
 // ----------------------------------------------------------------
+#top {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    min-height: 700px;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.btn {
+    text-transform: uppercase;
+    height: 56px;
+    font-size: 1.125rem;
+    line-height: 46px;
+    padding: 5px 15px;
+    border-radius: 3px;
+    border: 0px;
+    color:#fff;
+    background-color: #999aa2;
+    &.icon {
+        font-size: 1.5rem; 
+        background-color: transparent; 
+        color: #333645;
+        margin: 0;
+    }
+    &.alt {background-color: #4183d7;}
+}
+
+h1 {font-weight: 400;}
+
 .heading {
     background-color: $whitespace;
     justify-content: flex-end;
@@ -46,30 +83,10 @@ header {
         padding-right: 5vw;
         line-height: 0;
         height: inherit;
-        @media (max-width: 573px) {
-            max-width:60%;
-            img { 
-                padding-right:35%;
-            }
+        img {
+            min-width: 0%;
+            max-width: 100%;
         }
-    }
-    .btn {
-        text-transform: uppercase;
-        height: 56px;
-        font-size: 1.125rem;
-        line-height: 46px;
-        padding: 5px 15px;
-        border-radius: 3px;
-        border: 0px;
-        color:#fff;
-        background-color: #999aa2;
-        &.icon {
-            font-size: 1.5rem; 
-            background-color: transparent; 
-            color: #333645;
-            margin: 0;
-        }
-        &.alt {background-color: #4183d7;}
     }
     .search {
         display: flex;
@@ -90,6 +107,7 @@ header {
         }
     }
     @media (max-width: 767px) {
+        flex-wrap: wrap;
         .search{
             order: 1;
             flex-basis: 100%;
@@ -97,8 +115,10 @@ header {
             margin: 0;
             input {max-width:100%; width:100%}
         }
-        flex-wrap: wrap;
-        .site-logo {padding:0;}
+        .site-logo {
+            padding:0;
+            flex-basis: calc(100% - 157px)
+        }
     }
     .menu {
         font-size: 0.7rem;
@@ -150,28 +170,83 @@ header {
         font-size: 1.25rem;
     }
     .web i {
-        color: #926fb1;
+        color: $web;
     }
     .it i {
-        color: #4183d7;
+        color: $it;
     }
     .telecoms i {
-        color: #d64541;
+        color: $telecoms;
     }
     .software i {
-        color: #67809f;
+        color: $software;
     }
     .marketing i {
-        color: #2ecc71;
+        color: $marketing;
     }
     .security i {
-        color: #f62459;
+        color: $security;
     }
     &>li>ul {display:none}
 }
 
+// ------------------------------------------------------------------------
 
+#top .banner {
+    background-color: black;
+    flex-grow: 1;
+    display: flex;
+    position: relative;
+    color: #fff;
+    line-height: 1;
 
+    .content-container {
+        width: 100%;
+        height: 100%;
+        padding: 0 5vw;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: absolute;
+        background-color: #0007;
+        @media (min-width: 992px) {
+            text-align: left;
+            align-items: flex-start;
+            background-color: #0000;
+            background-image: linear-gradient(to right, #000f, #0007,#0000, #0000),
+        }
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit:cover;
+        // opacity: 50%;
+    }
+    h1 {
+        text-transform: uppercase;
+        font-size: 3rem;
+        margin: 0 0 25px 0;
+    }
+    p {
+        font-size: 1.25rem;
+        line-height: 2.25rem;
+        margin: 0 0 35px 0;
+    }
+    .btn {
+        padding: 5px 20px;
+        font-size: 1.25rem;
+    }
+    &.web .btn{ background-color: $web;}
+    &.it .btn{ background-color: $it;}
+    &.telecoms .btn{ background-color: $telecoms;}
+    &.software .btn{ background-color: $software;}
+    &.marketing .btn{ background-color: $marketing;}
+    &.security .btn{ background-color: $security;}
+}
+
+// -------------------------------------------------------------------------
+// media queries
 
 @media (max-width: 767px) {
     .xs {
@@ -196,3 +271,6 @@ header {
         display: none;
     }
 }
+
+// -----------------------------------------------------------------
+
