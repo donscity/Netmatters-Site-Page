@@ -45,11 +45,11 @@ header {
     }
     
     @media (min-width: $md) {
-        width: 90vw;
+        width: calc(650px + 35vw);
     }
     
-    @media (min-width: $xl) {
-        width: calc(1200px + 10vw);
+    @media (min-width: $lg) {
+        width: calc(985px + 10vw);
     }
 }
 
@@ -282,6 +282,7 @@ h1 {font-weight: 400;}
         border-radius: 3px;
         margin: 15px;
         padding: 30px;
+        box-shadow: 0 3px 30px #0003;
         @media (min-width: $md) {
             flex: 2 26%;
         }
@@ -291,7 +292,7 @@ h1 {font-weight: 400;}
     }
     .card-group {
         flex: 1 550px;
-        // flex-wrap: nowrap;
+        flex-wrap: nowrap;
         .card {flex-basis: 334px;}
     }
     i {
@@ -319,9 +320,16 @@ h1 {font-weight: 400;}
         font-size: 0.8rem;
         line-height: 1.3rem;
     }
-    a {
-        line-height: 2.4rem;
+    .btn {
+        line-height: 2.2rem;
+        margin-bottom: 0;
     }
+    .web .btn,.web i { background-color: $web;}
+    .it .btn,.it i { background-color: $it;}
+    .telecoms .btn,.telecoms i { background-color: $telecoms;}
+    .software .btn,.software i { background-color: $software;}
+    .marketing .btn,.marketing i { background-color: $marketing;}
+    .security .btn,.security i { background-color: $security;}
 }
 
 
