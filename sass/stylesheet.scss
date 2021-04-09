@@ -3,8 +3,8 @@ $whitespace: #fff;
 
 $sm-1:767px;
 $sm: 768px;
-$md-1: 999px;
-$md: 1000px;
+$md-1: 981px;
+$md: 982px;
 $lg-1: 1239px;
 $lg: 1240px;
 $xl-1: 1519px;
@@ -31,7 +31,6 @@ header {
     display: flex;
     flex-direction: column;
     text-transform: uppercase;
-
 }
 
 .section {
@@ -41,11 +40,11 @@ header {
     padding-right: 15px;
     
     @media (min-width: $sm) {
-        width: 95vw;
+        width: calc(380px + 50vw);
     }
     
     @media (min-width: $md) {
-        width: calc(650px + 35vw);
+        width: calc(280px + 64vw);
     }
     
     @media (min-width: $lg) {
@@ -56,6 +55,7 @@ header {
 .btn {
     display: inline-block;
     text-transform: uppercase;
+    text-decoration: none;
     height: auto;
     font-size: 1.125rem;
     line-height: 46px;
@@ -63,6 +63,9 @@ header {
     border-radius: 3px;
     border: 0px;
     color:#fff;
+    &:hover {
+        filter: brightness(0.9) contrast(125%);
+    }
     background-color: #999aa2;
     &.icon {
         font-size: 1.5rem; 
@@ -73,7 +76,19 @@ header {
     &.alt {background-color: #4183d7;}
 }
 
-h1 {font-weight: 400;}
+.color-hover:hover {
+    color: #fff !important;
+    i {color: #fff !important}
+    background-color: #999aa2;
+    &.web { background-color: $web; border-color: $web;}
+    &.it { background-color: $it; border-color: $it;}
+    &.telecoms { background-color: $telecoms; border-color: $telecoms;}
+    &.software { background-color: $software; border-color: $software;}
+    &.marketing { background-color: $marketing; border-color: $marketing;}
+    &.security { background-color: $security; border-color: $security;}
+}
+
+h1, h2, h3 {font-weight: 400;}
 
 // ----------------------------------------------------------------
 #top {
@@ -158,21 +173,14 @@ h1 {font-weight: 400;}
 
 .nav-bar{
     background-color: $altspan;
+    font-size: 1.15rem;
     display: flex;
     justify-content: center;
     list-style: none;
-    // padding: 0;
     margin: 0 auto;
-    // border-right: 1px solid #0004;
-    // border-left: 1px solid #fff2;
     &>li {
         display:block;
         flex: 1;
-        // max-width: 200px;
-        // min-width: 155px;
-        padding: 19px 0;
-        text-align: center;
-        line-height: 1;
         border-right: 1px solid #fff2;
         border-left: 1px solid #0004;
     }
@@ -182,6 +190,12 @@ h1 {font-weight: 400;}
     a {
         color: #fff;
         text-decoration: none;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 19px 0;
+        text-align: center;
+        line-height: 1;
     }
     small {
         display: block;
@@ -192,29 +206,50 @@ h1 {font-weight: 400;}
         padding-bottom: 10px;
         font-size: 1.25rem;
     }
-    .web i {
-        color: $web;
+    .web {
+        i {color: $web;}
+        .nav-items {background-color: $web;}
     }
-    .it i {
-        color: $it;
+    .it {
+        i {color: $it;}
+        .nav-items {background-color: $it;}
     }
-    .telecoms i {
-        color: $telecoms;
+    .telecoms {
+        i {color: $telecoms;}
+        .nav-items {background-color: $telecoms;}
     }
-    .software i {
-        color: $software;
+    .software {
+        i {color: $software;}
+        .nav-items {background-color: $software;}
     }
-    .marketing i {
-        color: $marketing;
+    .marketing {
+        i {color: $marketing;}
+        .nav-items {background-color: $marketing;}
     }
-    .security i {
-        color: $security;
+    .security {
+        i {color: $security;}
+        .nav-items {background-color: $security;}
     }
     &>li>ul {display:none}
+    &>li:hover {
+        color: #fff;
+        background-color: #999aa2;
+    }
+
+    >li:hover>.nav-items{
+        position: absolute;
+        left: -1px;
+        right: -1px;
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        font-size: 0.8em;
+        z-index: 2;
+    }
+    
+
 }
-
 // ------------------------------------------------------------------------
-
 #top .banner {
     background-color: black;
     flex-grow: 1;
@@ -272,14 +307,18 @@ h1 {font-weight: 400;}
     flex-wrap: wrap;
     justify-content: space-between;
     text-align: center;
-    color: #333645;
     &.section {
         padding: 35px 0;
     }
     .card {
         flex: 2 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         border: 1px solid #ccc;
         border-radius: 3px;
+        color: #333645;
+        text-decoration: none;
         margin: 15px;
         padding: 30px;
         box-shadow: 0 3px 30px #0003;
@@ -292,8 +331,10 @@ h1 {font-weight: 400;}
     }
     .card-group {
         flex: 1 550px;
-        flex-wrap: nowrap;
         .card {flex-basis: 334px;}
+        @media (min-width: $md) {
+            flex-wrap: nowrap;
+        }
     }
     i {
         color: #fff;
@@ -304,17 +345,14 @@ h1 {font-weight: 400;}
         border-radius: 50%;
         padding-top: 21px;
     }
-    h3 {
-        font-weight: 400;
-        &::after {
-            content:"";
-            background-color: #333645;
-            width: 30px;
-            height: 3px;
-            margin: auto;
-            display: block;
-            margin-top: 12px;
-        }
+    h3::after {
+        content:"";
+        background-color: #333645;
+        width: 30px;
+        height: 3px;
+        margin: auto;
+        display: block;
+        margin-top: 12px;
     }
     p{
         font-size: 0.8rem;
@@ -323,6 +361,7 @@ h1 {font-weight: 400;}
     .btn {
         line-height: 2.2rem;
         margin-bottom: 0;
+        margin-top: auto;
     }
     .web .btn,.web i { background-color: $web;}
     .it .btn,.it i { background-color: $it;}
@@ -330,11 +369,19 @@ h1 {font-weight: 400;}
     .software .btn,.software i { background-color: $software;}
     .marketing .btn,.marketing i { background-color: $marketing;}
     .security .btn,.security i { background-color: $security;}
+
+    .card:hover{
+        .btn, i, h3::after  {
+            background-color: #fff !important;
+        }
+        &.web .btn, &.web i {color: $web !important}
+        &.it .btn, &.it i {color: $it !important}
+        &.telecoms .btn, &.telecoms i {color: $telecoms !important}
+        &.software .btn, &.software i {color: $software !important}
+        &.marketing .btn, &.marketing i {color: $marketing !important}
+        &.security .btn, &.security i {color: $security !important}
+    }
 }
-
-
-
-
 // -------------------------------------------------------------------------
 // media queries
 
