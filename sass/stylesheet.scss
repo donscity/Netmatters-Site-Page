@@ -3,12 +3,12 @@ $whitespace: #fff;
 
 $sm-1:767px;
 $sm: 768px;
-$md-1: 1075px;
-$md: 1076px;
-$lg-1: 1305px;
-$lg: 1306px;
-$xl-1: 1600px;
-$xl: 1601px;
+$md-1: 999px;
+$md: 1000px;
+$lg-1: 1239px;
+$lg: 1240px;
+$xl-1: 1519px;
+$xl: 1520px;
 
 $web: #926fb1;
 $it: #4183d7;
@@ -41,30 +41,22 @@ header {
     padding-right: 15px;
     
     @media (min-width: $sm) {
-        width: 95vw
+        width: 95vw;
     }
     
     @media (min-width: $md) {
-        width: 85vw;
+        width: 90vw;
     }
     
     @media (min-width: $xl) {
         width: calc(1200px + 10vw);
     }
 }
-// ----------------------------------------------------------------
-#top {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    min-height: 700px;
-    flex-direction: column;
-    justify-content: stretch;
-}
 
 .btn {
+    display: inline-block;
     text-transform: uppercase;
-    height: 56px;
+    height: auto;
     font-size: 1.125rem;
     line-height: 46px;
     padding: 5px 15px;
@@ -82,6 +74,16 @@ header {
 }
 
 h1 {font-weight: 400;}
+
+// ----------------------------------------------------------------
+#top {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    min-height: 700px;
+    flex-direction: column;
+    justify-content: stretch;
+}
 
 .heading {
     background-color: $whitespace;
@@ -142,6 +144,7 @@ h1 {font-weight: 400;}
         font-size: 0.7rem;
         line-height: 0;
         background-color: #333645;
+        height: 57px;
         .hamburger {
             display: block;
         }
@@ -256,10 +259,6 @@ h1 {font-weight: 400;}
         line-height: 2.25rem;
         margin: 0 0 35px 0;
     }
-    .btn {
-        padding: 14px 20px;
-        font-size: 1.25rem;
-    }
     &.web .btn{ background-color: $web;}
     &.it .btn{ background-color: $it;}
     &.telecoms .btn{ background-color: $telecoms;}
@@ -267,6 +266,66 @@ h1 {font-weight: 400;}
     &.marketing .btn{ background-color: $marketing;}
     &.security .btn{ background-color: $security;}
 }
+// ------------------------------------------------------------------------
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    color: #333645;
+    &.section {
+        padding: 35px 0;
+    }
+    .card {
+        flex: 2 80%;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin: 15px;
+        padding: 30px;
+        @media (min-width: $md) {
+            flex: 2 26%;
+        }
+        >* {
+            margin: 0 0 12px 0;
+        }
+    }
+    .card-group {
+        flex: 1 550px;
+        // flex-wrap: nowrap;
+        .card {flex-basis: 334px;}
+    }
+    i {
+        color: #fff;
+        font-size: 1.2rem;
+        width: 60px;
+        height: 60px;
+        background-color: #999aa2;
+        border-radius: 50%;
+        padding-top: 21px;
+    }
+    h3 {
+        font-weight: 400;
+        &::after {
+            content:"";
+            background-color: #333645;
+            width: 30px;
+            height: 3px;
+            margin: auto;
+            display: block;
+            margin-top: 12px;
+        }
+    }
+    p{
+        font-size: 0.8rem;
+        line-height: 1.3rem;
+    }
+    a {
+        line-height: 2.4rem;
+    }
+}
+
+
+
 
 // -------------------------------------------------------------------------
 // media queries
