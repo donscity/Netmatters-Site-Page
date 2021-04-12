@@ -22,7 +22,9 @@ $security: #f62459;
 body {
     background-color: $whitespace;
     font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.4px;
     margin: 0;
+    overflow-x: hidden;
 }
 
 * {box-sizing: border-box;}
@@ -33,24 +35,43 @@ header {
     text-transform: uppercase;
 }
 
-.section {
+.page-center {
     margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
+    position: relative;
     
     @media (min-width: $sm) {
-        width: calc(380px + 50vw);
+        width: calc(380px + 49vw);
     }
     
     @media (min-width: $md) {
-        width: calc(280px + 64vw);
+        padding: 0;
+        width: calc(200px + 70vw);
     }
     
     @media (min-width: $lg) {
-        width: calc(985px + 10vw);
+        padding: 0;
+        width: calc(955px + 11vw);
     }
 }
+
+.page-center::before {
+    background-color: $whitespace;
+    content: "";
+    width: 100vw;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    left: 50%;
+    margin-left: -50vw;
+    top: 0%;
+}
+.content-section {
+    padding: 40px 0;
+}
+
 
 .btn {
     display: inline-block;
@@ -88,7 +109,16 @@ header {
     &.security { background-color: $security; border-color: $security;}
 }
 
-h1, h2, h3 {font-weight: 400;}
+h1, h2, h3, p {
+    font-weight: 400;
+    margin: 0 0 25px 0;
+    line-height: 1.9rem;
+}    
+h1 {
+    text-transform: uppercase;
+    font-size: 2.25rem;
+}
+.bold {font-weight: bold;}
 
 // ----------------------------------------------------------------
 #top {
@@ -178,14 +208,19 @@ h1, h2, h3 {font-weight: 400;}
     justify-content: center;
     list-style: none;
     margin: 0 auto;
-    &>li {
+    padding: 0px;
+    border-right: 1px solid #0004;
+    border-left: 1px solid #fff2;
+    &::before {background-color: $altspan;}
+    
+    >li {
         display:block;
         flex: 1;
         border-right: 1px solid #fff2;
         border-left: 1px solid #0004;
     }
-    &::before {content: ""; border-right: 1px solid #fff2;}
-    &::after {content: ""; border-left: 1px solid #0004;}
+
+
         
     a {
         color: #fff;
@@ -208,43 +243,60 @@ h1, h2, h3 {font-weight: 400;}
     }
     .web {
         i {color: $web;}
-        .nav-items {background-color: $web;}
+        .nav-items, .nav-items::before {background-color: darken($web, 10%);}
     }
     .it {
         i {color: $it;}
-        .nav-items {background-color: $it;}
+        .nav-items, .nav-items::before {background-color: darken($it, 10%);}
     }
     .telecoms {
         i {color: $telecoms;}
-        .nav-items {background-color: $telecoms;}
+        .nav-items, .nav-items::before {background-color: darken($telecoms, 10%);}
     }
     .software {
         i {color: $software;}
-        .nav-items {background-color: $software;}
+        .nav-items, .nav-items::before {background-color: darken($software, 10%);}
     }
     .marketing {
         i {color: $marketing;}
-        .nav-items {background-color: $marketing;}
+        .nav-items, .nav-items::before {background-color: darken($marketing, 10%);}
     }
     .security {
         i {color: $security;}
-        .nav-items {background-color: $security;}
+        .nav-items, .nav-items::before {background-color: darken($security, 10%);}
     }
-    &>li>ul {display:none}
-    &>li:hover {
+
+    >li:hover {
         color: #fff;
         background-color: #999aa2;
     }
 
-    >li:hover>.nav-items{
+    >li>.nav-items{
+        display:none;
         position: absolute;
         left: -1px;
         right: -1px;
-        display: flex;
         justify-content: space-between;
         list-style: none;
-        font-size: 0.8em;
         z-index: 2;
+        li {
+            display: flex;
+            flex: auto;
+            justify-content: space-evenly;
+            &:nth-child(n+2)::before {
+                content: "-";
+                margin: auto;
+            }
+        }
+        a {
+            font-size: 80%;
+            padding: 0px;
+            line-height: 2.8rem;
+        }
+    }
+
+    >li:hover>.nav-items{
+        display: flex;
     }
     
 
@@ -285,9 +337,7 @@ h1, h2, h3 {font-weight: 400;}
         // opacity: 50%;
     }
     h1 {
-        text-transform: uppercase;
         font-size: 3rem;
-        margin: 0 0 25px 0;
     }
     p {
         font-size: 1.25rem;
@@ -307,10 +357,9 @@ h1, h2, h3 {font-weight: 400;}
     flex-wrap: wrap;
     justify-content: space-between;
     text-align: center;
-    &.section {
-        padding: 35px 0;
-    }
+
     .card {
+        background-color: #fff;
         flex: 2 80%;
         display: flex;
         flex-direction: column;
@@ -383,6 +432,30 @@ h1, h2, h3 {font-weight: 400;}
     }
 }
 // -------------------------------------------------------------------------
+.netmatters-info {
+    &::before {
+        background-color: $altspan;
+        background-image: url(images/branded.png);
+        
+    }
+
+    color: #fff;
+    h1 {padding: 5px 0}
+
+    @media (min-width: $lg) {
+        padding-right: 31%;
+    }
+
+    .btn {
+        background-color: #fff;
+        color:$altspan;
+        line-height: 2.3rem;
+    }
+
+}
+
+
+
 // media queries
 
 @media (max-width: $sm-1) {
