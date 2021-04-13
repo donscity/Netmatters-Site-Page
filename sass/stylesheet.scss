@@ -35,6 +35,11 @@ header {
     text-transform: uppercase;
 }
 
+.page-span {
+    background-color: $whitespace;
+    width: 100%;
+}
+
 .page-center {
     margin-right: auto;
     margin-left: auto;
@@ -47,27 +52,14 @@ header {
     }
     
     @media (min-width: $md) {
-        padding: 0;
         width: calc(200px + 70vw);
     }
     
     @media (min-width: $lg) {
-        padding: 0;
         width: calc(955px + 11vw);
     }
 }
 
-.page-center::before {
-    background-color: $whitespace;
-    content: "";
-    width: 100vw;
-    height: 100%;
-    z-index: -1;
-    position: absolute;
-    left: 50%;
-    margin-left: -50vw;
-    top: 0%;
-}
 .content-section {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -197,8 +189,7 @@ h1 {
     }
 }
 // ---------------------------------------------------------
-.grey-span {
-    width: 100%;
+.page-span.alt {
     background-color: $altspan;
 }
 
@@ -208,21 +199,22 @@ h1 {
     display: flex;
     justify-content: center;
     list-style: none;
-    margin: 0 auto;
-    padding: 0px;
-    border-right: 1px solid #0004;
-    border-left: 1px solid #fff2;
-    &::before {background-color: $altspan;}
-    
+    margin-top: 0;
+    margin-bottom: 0;
+    &::before {
+        content: "";
+        border-right: 1px solid #fff2
+    }
+    &::after {
+        content: "";
+        border-left: 1px solid #0004
+    }
     >li {
         display:block;
         flex: 1;
         border-right: 1px solid #fff2;
         border-left: 1px solid #0004;
-    }
-
-
-        
+    }  
     a {
         color: #fff;
         text-decoration: none;
@@ -359,7 +351,10 @@ h1 {
     justify-content: space-between;
     text-align: center;
     &.content-section {
-        padding: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-top: -15px;
+        margin-bottom: -15px;
     }
     .card {
         background-color: #fff;
@@ -435,13 +430,12 @@ h1 {
     }
 }
 // -------------------------------------------------------------------------
-.netmatters-info {
-    &::before {
-        background-color: $altspan;
-        background-image: url(images/branded.png);
-        
-    }
 
+.page-span.brand {
+    background-image: url(images/branded.png)
+}
+
+.netmatters-info {
     color: #fff;
     h1 {padding: 5px 0}
 
