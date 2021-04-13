@@ -22,12 +22,31 @@ $security: #f62459;
 body {
     background-color: $whitespace;
     font-family: 'Poppins', sans-serif;
+    color: $altspan;
     letter-spacing: 0.4px;
     margin: 0;
     overflow-x: hidden;
 }
 
 * {box-sizing: border-box;}
+
+a {
+    text-decoration:none;
+    color: $altspan;
+}
+
+h1, h2, h3, h4, p {
+    margin-block-start: 0;
+    margin-block-start: 0;
+    font-weight: 400;
+    margin: 0 0 25px 0;
+    line-height: 1.9rem;
+}    
+h1 {
+    text-transform: uppercase;
+    font-size: 2.25rem;
+}
+.bold {font-weight: bold;}
 
 header {
     display: flex;
@@ -48,15 +67,15 @@ header {
     position: relative;
     
     @media (min-width: $sm) {
-        width: calc(380px + 49vw);
+        width: calc(390px + 49vw);
     }
     
     @media (min-width: $md) {
-        width: calc(200px + 70vw);
+        width: calc(230px + 70vw);
     }
     
     @media (min-width: $lg) {
-        width: calc(955px + 11vw);
+        width: calc(985px + 11vw);
     }
 }
 
@@ -64,7 +83,6 @@ header {
     padding-top: 40px;
     padding-bottom: 40px;
 }
-
 
 .btn {
     display: inline-block;
@@ -102,16 +120,50 @@ header {
     &.security { background-color: $security; border-color: $security;}
 }
 
-h1, h2, h3, p {
-    font-weight: 400;
-    margin: 0 0 25px 0;
-    line-height: 1.9rem;
-}    
-h1 {
-    text-transform: uppercase;
-    font-size: 2.25rem;
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    &.content-section {
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-top: -15px;
+        margin-bottom: -15px;
+    }
+    .content {
+        padding: 30px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    .card {
+        flex: 1;
+        background-color: #fff;
+        margin: 15px;
+        border-radius: 3px;
+        box-shadow: 0 3px 30px #0003;
+        p{
+            font-size: 0.8rem;
+            line-height: 1.3rem;
+        }
+        .btn {
+            line-height: 2.2rem;
+            margin: auto 0 0 0 !important;
+        }
+    }
+    .web .btn,.web i { background-color: $web;}
+    .it .btn,.it i { background-color: $it;}
+    .telecoms .btn,.telecoms i { background-color: $telecoms;}
+    .software .btn,.software i { background-color: $software;}
+    .marketing .btn,.marketing i { background-color: $marketing;}
+    .security .btn,.security i { background-color: $security;}
+    .web h4 {color: $web}
+    .it h4 {color: $it}
+    .telecoms h4 {color: $telecoms}
+    .software h4 {color: $software}
+    .marketing h4 {color: $marketing}
+    .security h4 {color: $security}
 }
-.bold {font-weight: bold;}
 
 // ----------------------------------------------------------------
 #top {
@@ -345,50 +397,31 @@ h1 {
     &.security .btn{ background-color: $security;}
 }
 // ------------------------------------------------------------------------
-.card-container {
+
+.card-group {
+    flex: 1 550px;
+    .card {flex-basis: 334px;}
+    @media (min-width: $md) {
+        flex-wrap: nowrap;
+    }
+}
+
+.card-container .card.color-hover {
+    flex: 2 80%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    text-align: center;
-    &.content-section {
-        padding-left: 0px;
-        padding-right: 0px;
-        margin-top: -15px;
-        margin-bottom: -15px;
+    flex-direction: column;
+    align-items: center;
+    @media (min-width: $md) {
+        flex: 2 26%;
     }
-    .card {
-        background-color: #fff;
-        flex: 2 80%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        color: #333645;
-        text-decoration: none;
-        margin: 15px;
-        padding: 30px;
-        box-shadow: 0 3px 30px #0003;
-        @media (min-width: $md) {
-            flex: 2 26%;
-        }
-        >* {
-            margin: 0 0 12px 0;
-        }
-    }
-    .card-group {
-        flex: 1 550px;
-        .card {flex-basis: 334px;}
-        @media (min-width: $md) {
-            flex-wrap: nowrap;
-        }
+    >* {
+        margin: 0 0 12px 0;
     }
     i {
         color: #fff;
         font-size: 1.2rem;
         width: 60px;
         height: 60px;
-        background-color: #999aa2;
         border-radius: 50%;
         padding-top: 21px;
     }
@@ -401,23 +434,7 @@ h1 {
         display: block;
         margin-top: 12px;
     }
-    p{
-        font-size: 0.8rem;
-        line-height: 1.3rem;
-    }
-    .btn {
-        line-height: 2.2rem;
-        margin-bottom: 0;
-        margin-top: auto;
-    }
-    .web .btn,.web i { background-color: $web;}
-    .it .btn,.it i { background-color: $it;}
-    .telecoms .btn,.telecoms i { background-color: $telecoms;}
-    .software .btn,.software i { background-color: $software;}
-    .marketing .btn,.marketing i { background-color: $marketing;}
-    .security .btn,.security i { background-color: $security;}
-
-    .card:hover{
+    &:hover{
         .btn, i, h3::after  {
             background-color: #fff !important;
         }
@@ -429,10 +446,13 @@ h1 {
         &.security .btn, &.security i {color: $security !important}
     }
 }
-// -------------------------------------------------------------------------
 
+// -------------------------------------------------------------------------
 .page-span.brand {
-    background-image: url(images/branded.png)
+    background-image: url(../images/logos/branded.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .netmatters-info {
@@ -450,8 +470,94 @@ h1 {
     }
 
 }
+// ----------------------------------------------------------------------
+.shadow {
+    box-shadow: 0 5px 35px rgba(0,0,0,.1);
+}
+.news-head {
+    display: flex;
+    h3 {
+        text-transform: uppercase;
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+        margin: 0;
+        border-bottom: 5px solid $altspan;
+        display: block;
+    }
+}
 
 
+.card-container.article .card:nth-child(n+3) {
+    background-color: aqua;
+    @media (min-width: 1246px) {
+        display: hidden;
+    }
+}
+
+
+.card-container .article.card {
+    flex-basis: 344px;
+    // height: 650px;
+    position: relative;
+    text-align: left;
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    .btn.label {
+        font-size: 0.75rem;
+        font-weight: bold;
+        line-height: 1rem;
+        border-radius: 0;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        right: 0;
+    }
+    a.img {
+        max-height: 350px;
+        overflow: hidden;
+        display: block;
+        margin-bottom: -7px;
+    }
+    >a>img {
+        width: 100%;
+        border-radius: 3px 3px 0 0;
+    }
+    .content {
+        flex: 1;
+        border-top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    h4 {
+        font-weight: bold;
+        &:hover {text-decoration: underline}
+        // height: 3.75rem;
+    }
+    .btn {
+        align-self: flex-start;
+    }
+    .article-writer {
+        display: flex;
+        align-items: center;
+        padding-top: 30px;
+        border-top: 1px solid #bbb;
+        margin-top: 30px;
+        img {
+            width: 47px;
+            height: 47px;
+            border-radius: 50%;
+        }
+        div {
+            span {color: $altspan}
+            padding-left: 30px;
+            font-size: 0.9rem;
+        }
+    }
+}
 
 // media queries
 
