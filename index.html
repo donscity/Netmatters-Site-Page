@@ -25,7 +25,7 @@
                     <a class="btn hide xs sm" href="https://www.netmatters.co.uk/contact-us"><i class="far fa-paper-plane"></i> Contact</a>
                     <form class="search" method="GET" >
                         <label for="input" hidden>Search</label>
-                        <input class="btn hide md" id="input" placeholder="Search..." name="search-term">
+                        <input class="btn text hide md" id="input" placeholder="Search..." name="search-term">
                         <button class="btn" type="submit" id="search-submit"><i class="fas fa-search"></i></button>
                     </form>
                     <button class="btn menu">
@@ -186,7 +186,7 @@
         <div class="page-span alt brand">
             <aside class="page-center content-section netmatters-info">
                 <h1>Netmatters</h1>
-                <p class="bold">Netmatters Ltd is a leading web design, IT support and digital marketing agency based in Wymondham, Norfolk.</p>
+                <p><b>Netmatters Ltd is a leading web design, IT support and digital marketing agency based in Wymondham, Norfolk.</b></p>
                 <p>Founded in 2008, we work with businesses from a variety of industries to gain new prospects, nurture existing leads and further grow their sales.</p>
                 <p>We provide cost effective, reliable solutions to a range of services; from bespoke cloud-based management systems, workflow and IT solutions through to creative website development and integrated digital campaigning.</p>
                 <a class="btn" href="https://www.netmatters.co.uk/our-culture">Our Culture <i class="fas fa-arrow-right"></i></a>
@@ -212,7 +212,7 @@
                         <div class="article-writer">
                             <img src="images/articles/writer/james-gulliver-rgmz.jpg" alt="James Gulliver">
                             <div>    
-                                <span class="bold">Posted by James Gulliver</span>
+                                <span><b>Posted by James Gulliver</b></span>
                                 <br>9th April 2021
                             </div>
                         </div>
@@ -231,7 +231,7 @@
                         <div class="article-writer">
                             <img src="images/articles/writer/tom-lancaster-61K1.jpg" alt="">
                             <div>    
-                                <span class="bold">Posted by Tom Lancaster</span>
+                                <span><b>Posted by Tom Lancaster</b></span>
                                 <br>8th April 2021
                             </div>
                         </div>
@@ -250,7 +250,7 @@
                         <div class="article-writer">
                             <img src="images/articles/writer/rob-george-zFWY.jpg" alt="">
                             <div>
-                                <span class="bold">Posted by Rob George</span>
+                                <span><b>Posted by Rob George</b></span>
                                 <br>8th April 2021 
                             </div>
                         </div>
@@ -310,11 +310,27 @@
 
             </div>
         </div>
-
-
-
-
-
+<!-- ---------------------------------------------------------------------------------------------------------------------------- -->
+        <div class="page-span alt2">
+            <form class="page-center content-section" method="POST" id="sign-up" action="#" accept-charset="UTF-8">
+                <h2>Email Newsletter Sign-Up</h2>
+                <div class="input-group">
+                    <div>
+                        <label class="required" for="name"><b>Your Name</b></label>
+                        <input class="btn text" type="text" id="name" name="name" required>
+                    </div>
+                    <div>
+                        <label class="required" for="email"><b>Your Email</b></label>
+                        <input class="btn text" type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="marketinginfo" name="marketinginfo" value="true">
+                    <label for="marketinginfo"><b>Please tick this box if you wish to receive marketing information from us. Please see our <a href="https://www.netmatters.co.uk/privacy-policy">Privacy Policy</a> for more information on how we use your data.</b></label>
+                </div>
+                <input class="btn alt" type="submit" value="Subscribe">
+            </form>
+        </div>
 
     </div>
 <!-- ------------------------------------------------------------------------------------------------------------- -->

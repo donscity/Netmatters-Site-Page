@@ -1,5 +1,6 @@
-$altspan: #333645;
 $whitespace: #fff;
+$altwhitespace: #333645;
+$alt2whitespace: #ddd;
 
 $sm-1:767px;
 $sm: 768px;
@@ -21,8 +22,8 @@ $security: #f62459;
 // -----------------------------------------------------------------
 body {
     background-color: $whitespace;
-    font-family: 'Poppins', sans-serif;
-    color: $altspan;
+    font-family: 'Poppins', sans-serif !important;
+    color: $altwhitespace;
     letter-spacing: 0.4px;
     margin: 0;
     overflow-x: hidden;
@@ -32,12 +33,12 @@ body {
 
 a {
     text-decoration:none;
-    color: $altspan;
+    color: $altwhitespace;
 }
 
 h1, h2, h3, h4, p {
     margin-block-start: 0;
-    margin-block-start: 0;
+    margin-block-end: 0;
     font-weight: 400;
     margin: 0 0 25px 0;
 }    
@@ -45,14 +46,18 @@ h1 {
     text-transform: uppercase;
     font-size: 2.25rem;
 }
-.bold {font-weight: bold;}
 
 header {
     display: flex;
     flex-direction: column;
     text-transform: uppercase;
 }
-
+.page-span.alt {
+    background-color: $altwhitespace;
+}
+.page-span.alt2 {
+    background-color: $alt2whitespace;
+}
 .page-center {
     margin-right: auto;
     margin-left: auto;
@@ -100,6 +105,16 @@ header {
         margin: 0;
     }
     &.alt {background-color: #4183d7;}
+}
+button, input, select, textarea {
+    font-family: inherit;
+}
+input.btn.text {
+    border: 1.2px solid #999aa2;
+    font-size: 0.9rem;
+    text-transform: none;
+    background-color: $whitespace;
+    color: #555;
 }
 
 .color-hover:hover {
@@ -195,14 +210,8 @@ header {
         display: flex;
         input {
             max-width: 240px;
-            border: 1.2px solid #999aa2;
             border-right: 0;
             border-radius: 3px 0 0 3px;
-            font-size: 0.9rem;
-            text-transform: none;
-            font-family: inherit;
-            background-color: $whitespace;
-            color: #555;
         }
         button {
             padding-left: 20px;
@@ -235,12 +244,8 @@ header {
     }
 }
 // ---------------------------------------------------------
-.page-span.alt {
-    background-color: $altspan;
-}
-
 .nav-bar{
-    background-color: $altspan;
+    background-color: $altwhitespace;
     font-size: 1.15rem;
     display: flex;
     justify-content: center;
@@ -402,56 +407,55 @@ header {
     &.security .btn{ background-color: $security;}
 }
 // ------------------------------------------------------------------------
-
-.card-group {
-    flex: 1 550px;
-    .card {flex-basis: 334px;}
-    @media (min-width: $md) {
-        flex-wrap: nowrap;
-    }
-}
-
-.card-container .card.color-hover {
-    flex: 2 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    @media (min-width: $md) {
-        flex: 2 26%;
-    }
-    >* {
-        margin: 0 0 12px 0;
-    }
-    i {
-        color: #fff;
-        font-size: 1.2rem;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        padding-top: 21px;
-    }
-    h3::after {
-        content:"";
-        background-color: #333645;
-        width: 30px;
-        height: 3px;
-        margin: auto;
-        display: block;
-        margin-top: 12px;
-    }
-    &:hover{
-        .btn, i, h3::after  {
-            background-color: #fff !important;
+.card-container {
+    .card-group {
+        flex: 1 550px;
+        .card.color-hover {flex-basis: 334px;}
+        @media (min-width: $md) {
+            flex-wrap: nowrap;
         }
-        &.web .btn, &.web i {color: $web !important}
-        &.it .btn, &.it i {color: $it !important}
-        &.telecoms .btn, &.telecoms i {color: $telecoms !important}
-        &.software .btn, &.software i {color: $software !important}
-        &.marketing .btn, &.marketing i {color: $marketing !important}
-        &.security .btn, &.security i {color: $security !important}
+    }
+    .card.color-hover {
+        flex: 2 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media (min-width: $md) {
+            flex: 2 26%;
+        }
+        >* {
+            margin: 0 0 12px 0;
+        }
+        i {
+            color: #fff;
+            font-size: 1.2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            padding-top: 21px;
+        }
+        h3::after {
+            content:"";
+            background-color: #333645;
+            width: 30px;
+            height: 3px;
+            margin: auto;
+            display: block;
+            margin-top: 12px;
+        }
+        &:hover{
+            .btn, i, h3::after  {
+                background-color: #fff !important;
+            }
+            &.web .btn, &.web i {color: $web !important}
+            &.it .btn, &.it i {color: $it !important}
+            &.telecoms .btn, &.telecoms i {color: $telecoms !important}
+            &.software .btn, &.software i {color: $software !important}
+            &.marketing .btn, &.marketing i {color: $marketing !important}
+            &.security .btn, &.security i {color: $security !important}
+        }
     }
 }
-
 // -------------------------------------------------------------------------
 .page-span.brand {
     background-image: url(../images/logos/branded.png);
@@ -471,7 +475,7 @@ header {
 
     .btn {
         background-color: #fff;
-        color:$altspan;
+        color:$altwhitespace;
         line-height: 2.3rem;
     }
 
@@ -489,7 +493,7 @@ header {
         line-height: 1.5rem;
         margin: 0;
         padding: 30px 0;
-        border-bottom: 5px solid $altspan;
+        border-bottom: 5px solid $altwhitespace;
         display: block;
     }
 }
@@ -547,7 +551,7 @@ header {
             border-radius: 50%;
         }
         div {
-            span {color: $altspan}
+            span {color: $altwhitespace}
             padding-left: 30px;
             font-size: 0.9rem;
         }
@@ -571,7 +575,7 @@ header {
     .description {
         margin: 0 auto 45px;
         max-width: 260px;
-        background-color: $altspan;
+        background-color: $altwhitespace;
         color: #fff;
         font-size: 0.81rem;
         text-align: center;
@@ -605,7 +609,56 @@ header {
         }
     }
 }
-
+// ---------------------------------------------------------------------------
+form.content-section {
+    padding-right: 45px;
+    padding-left: 45px;
+    >* {
+        display: block;
+    }
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    .label {
+        margin-bottom: 5px;
+    }
+    .input-group {
+        display: flex; 
+        flex-wrap: wrap;
+        margin: 0 -15px;
+        >* {
+            flex:1 370px;
+            margin: 0 15px;
+        }
+    }
+    .required::after {content:" *"; color:rgb(228, 30, 30)}
+    input.btn.text {
+        height: 47px;
+        width: 100%;
+        border: 1px solid #c7c7c7;
+        margin-bottom: 15px;
+    }
+    .checkbox {
+        display: flex;
+        margin-bottom: 35px;
+        input {
+            height:32px;
+            width: 56px;
+            margin: 0 20px 0 0;
+        }
+        label {
+            line-height: 32px;
+            cursor: pointer;
+        }
+        a{text-decoration: underline;}
+    }
+    .btn.alt {
+        background-color: $altwhitespace;
+        line-height: 2.2rem;
+        font-size: 1rem;
+    }
+}
 
 
 
