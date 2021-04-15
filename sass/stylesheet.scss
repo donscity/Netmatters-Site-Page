@@ -17,6 +17,9 @@ $telecoms: #d64541;
 $software: #67809f;
 $marketing: #2ecc71;
 $security: #f62459;
+$facebook: #3b5998;
+$twitter: #1da1f2;
+$linkedin: #0072b1;
 
 
 // -----------------------------------------------------------------
@@ -35,6 +38,7 @@ a {
     text-decoration:none;
     color: $altwhitespace;
 }
+.link:hover,.label:hover {text-decoration: underline}
 
 h1, h2, h3, h4, p {
     margin-block-start: 0;
@@ -54,6 +58,8 @@ header {
 }
 .page-span.alt {
     background-color: $altwhitespace;
+    color: #fff;
+    a:not(.btn) {color:#fff}
 }
 .page-span.alt2 {
     background-color: $alt2whitespace;
@@ -76,6 +82,9 @@ header {
     @media (min-width: $lg) {
         width: calc(985px + 11vw);
     }
+}
+.shadow {
+    box-shadow: 0 5px 35px rgba(0,0,0,.1);
 }
 
 .content-section {
@@ -116,6 +125,15 @@ input.btn.text {
     background-color: $whitespace;
     color: #555;
 }
+.btn.social-media {
+    border-radius: 0%;
+    background-color: darken($altwhitespace, 7%);
+    text-align: center;
+    font-size: 1.75rem;
+    &.facebook:hover {background-color: $facebook;}
+    &.twitter:hover {background-color: $twitter;}
+    &.linkedin:hover {background-color: $linkedin;}
+}
 
 .color-hover:hover {
     color: #fff !important;
@@ -133,17 +151,23 @@ input.btn.text {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    text-align: center;
     &.content-section {
         padding-left: 0px;
         padding-right: 0px;
-        margin-top: -15px;
-        margin-bottom: -15px;
+        padding-top: 35px;
+        padding-bottom: 35px;
     }
     .content {
         padding: 30px;
         border: 1px solid #ccc;
         border-radius: 3px;
+    }
+    .card-group {
+        flex: 1 550px;
+        .card.color-hover {flex-basis: 334px;}
+        @media (min-width: $md) {
+            flex-wrap: nowrap;
+        }
     }
     .card {
         flex: 1;
@@ -408,18 +432,12 @@ input.btn.text {
 }
 // ------------------------------------------------------------------------
 .card-container {
-    .card-group {
-        flex: 1 550px;
-        .card.color-hover {flex-basis: 334px;}
-        @media (min-width: $md) {
-            flex-wrap: nowrap;
-        }
-    }
     .card.color-hover {
         flex: 2 80%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
         @media (min-width: $md) {
             flex: 2 26%;
         }
@@ -465,7 +483,6 @@ input.btn.text {
 }
 
 .netmatters-info {
-    color: #fff;
         line-height: 1.9rem;
     h1 {padding: 5px 0}
 
@@ -481,9 +498,6 @@ input.btn.text {
 
 }
 // ----------------------------------------------------------------------
-.shadow {
-    box-shadow: 0 5px 35px rgba(0,0,0,.1);
-}
 .news-head {
     display: flex;
     h3 {
@@ -534,7 +548,6 @@ input.btn.text {
     }
     h4 {
         font-weight: bold;
-        &:hover {text-decoration: underline}
     }
     .btn {
         align-self: flex-start;
@@ -583,6 +596,15 @@ input.btn.text {
         padding: 20px;
         h3{
             font-size: 1.12rem;
+            margin-bottom: 15px;
+        }
+        h3::after {
+            content: "";
+            display: block;
+            margin: 10px auto 0;
+            background-color: #fff;
+            height: 3px;
+            width: 30px;
         }
         p {
             margin-bottom: 0;
@@ -641,7 +663,7 @@ form.content-section {
     }
     .checkbox {
         display: flex;
-        margin-bottom: 35px;
+        margin-bottom: 30px;
         input {
             height:32px;
             width: 56px;
@@ -659,7 +681,32 @@ form.content-section {
         font-size: 1rem;
     }
 }
-
+// ------------------------------------------------------------------------------
+footer {
+    .card-container.content-section{
+        margin-top: 0;
+        margin-bottom: 0;
+        div {
+            flex: 1 45%;
+            font-size: 0.8rem;
+            margin: 15px;
+            h4 {
+                font-size: 1rem;
+                text-transform: uppercase;
+            }
+            @media (min-width: $lg) {flex-basis: 20%;}
+        }
+        .social-media-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -15px;
+            >a {
+                flex: 0 39%;
+                margin: 15px;
+            }
+        }
+    }
+}
 
 
 // ---------media queries-----------------------------------------------------
