@@ -181,7 +181,7 @@ input.btn.text {
         background-color: #fff;
         margin: 15px;
         border-radius: 3px;
-        box-shadow: 0 3px 30px #0003;
+        box-shadow: 0 3px 30px rgba(0, 0, 0, 0.2);
         p{
             font-size: 0.8rem;
             line-height: 1.3rem;
@@ -218,7 +218,6 @@ input.btn.text {
 .heading {
     background-color: $whitespace;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -231,6 +230,7 @@ input.btn.text {
         margin-left: 0%;
         margin-right: auto;
         line-height: 0;
+        max-width: 370px;
         height: inherit;
         img {
             min-width: 0%;
@@ -243,7 +243,7 @@ input.btn.text {
         input {
             flex-shrink: 2;
             width: 100%;
-            max-width: 240px;
+            max-width: 200px;
             border-right: 0;
             border-radius: 3px 0 0 3px;
         }
@@ -282,23 +282,24 @@ input.btn.text {
     background-color: $altwhitespace;
     font-size: 1.15rem;
     display: flex;
+    height: 100%;
     justify-content: center;
     list-style: none;
     margin-top: 0;
     margin-bottom: 0;
     &::before {
         content: "";
-        border-right: 1px solid #fff2
+        border-right: 1px solid rgba(255, 255, 255, 0.133)
     }
     &::after {
         content: "";
-        border-left: 1px solid #0004
+        border-left: 1px solid rgba(0, 0, 0, 0.267)
     }
     >li {
         display:block;
         flex: 1;
-        border-right: 1px solid #fff2;
-        border-left: 1px solid #0004;
+        border-right: 1px solid rgba(255, 255, 255, 0.133);
+        border-left: 1px solid rgba(0, 0, 0, 0.267);
     }  
     a {
         color: #fff;
@@ -401,7 +402,9 @@ input.btn.text {
     position: relative;
     color: #fff;
     line-height: 1;
-
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     .content-container {
         width: 100%;
         height: 100%;
@@ -414,19 +417,21 @@ input.btn.text {
         position: absolute;
         top: 0%;
         left: 0%;
-        background-color: #0007;
+        background-color: rgba(0, 0, 0, 0.467);
         @media (min-width: $md) {
             text-align: left;
             align-items: flex-start;
-            background-color: #0000;
-            background-image: linear-gradient(to right, #000f, #0007,#0000, #0000),
+            background-color: rgba(0, 0, 0, 0);
+            background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.467),rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
         }
     }
     img {
         width: 100%;
         height: 100%;
         object-fit:cover;
-        // opacity: 50%;
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            width: auto;
+       }
     }
     h1 {
         font-size: 3rem;
@@ -452,7 +457,7 @@ input.btn.text {
         align-items: center;
         text-align: center;
         @media (min-width: $md) {
-            flex: 2 25%;
+            flex: 2 23%;
         }
         >* {
             margin: 0 0 12px 0;
@@ -465,6 +470,7 @@ input.btn.text {
             border-radius: 50%;
             padding-top: 21px;
         }
+        h3 {width:100%}
         h3::after {
             content:"";
             background-color: #333645;
@@ -474,6 +480,7 @@ input.btn.text {
             display: block;
             margin-top: 12px;
         }
+        p {width: 100%}
         &:hover{
             .btn, i, h3::after  {
                 background-color: #fff !important;
@@ -551,15 +558,16 @@ input.btn.text {
     >a>img {
         width: 100%;
         height: 100%;
+        object-fit:cover;
         border-radius: 3px 3px 0 0;
         transition: .25s cubic-bezier(.215,.61,.355,1);
         &:hover {
             transform: scale(1.1);
-            filter: opacity(80%);
+            opacity: 0.8;
         }
     }
     .content {
-        flex: 1;
+        flex-grow: 1;
         border-top: 0;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
@@ -689,7 +697,7 @@ form.content-section {
         input {
             height: 32px;
             width: 32px;
-            opacity: 0%;
+            opacity: 0;
             position: absolute;
             margin: 0;
         }
@@ -743,6 +751,9 @@ footer {
             >a {
                 flex: 0 39%;
                 margin: 15px;
+                @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                    flex-basis: 23%;
+               }
             }
         }
     }
