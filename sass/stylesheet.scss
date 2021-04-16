@@ -2,6 +2,8 @@ $whitespace: #fff;
 $altwhitespace: #333645;
 $alt2whitespace: #ddd;
 
+$inputhighlight: #5bc0de;
+
 $sm-1:767px;
 $sm: 768px;
 $md-1: 981px;
@@ -124,6 +126,11 @@ input.btn.text {
     text-transform: none;
     background-color: $whitespace;
     color: #555;
+    &:focus {
+        outline: none !important;
+        border-color: $inputhighlight !important;
+        box-shadow: 0 0 5px $inputhighlight !important;
+    }
 }
 .btn.social-media {
     border-radius: 0%;
@@ -475,11 +482,13 @@ input.btn.text {
     }
 }
 // -------------------------------------------------------------------------
-.page-span.brand {
-    background-image: url(../images/logos/branded.png);
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: contain;
+@media (min-width: $md) {
+    .page-span.brand {
+        background-image: url(../images/logos/branded.png);
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: auto 100%;
+    }
 }
 
 .netmatters-info {
@@ -532,11 +541,16 @@ input.btn.text {
         max-height: 350px;
         overflow: hidden;
         display: block;
-        margin-bottom: -7px;
     }
     >a>img {
         width: 100%;
+        height: 100%;
         border-radius: 3px 3px 0 0;
+        transition: .25s cubic-bezier(.215,.61,.355,1);
+        &:hover {
+            transform: scale(1.1);
+            filter: opacity(80%);
+        }
     }
     .content {
         flex: 1;
@@ -573,7 +587,6 @@ input.btn.text {
 // ---------------------------------------------------------------------------
 .logos-list {
     display: flex;
-    margin-top: 10px;
     justify-content: space-evenly;
     .logo {
         position: relative;
@@ -584,6 +597,7 @@ input.btn.text {
         bottom: 100%;
         right: -200px;
         left: -200px;
+        margin-bottom: 5px;
     }
     .description {
         margin: 0 auto 45px;
@@ -664,16 +678,36 @@ form.content-section {
     .checkbox {
         display: flex;
         margin-bottom: 30px;
+        line-height: 32px;
+        cursor: pointer;
         input {
+            height: 32px;
+            width: 32px;
+            opacity: 0%;
+            position: absolute;
+            margin: 0;
+        }
+        .fake-checkbox {
+            content: "";
             height:32px;
-            width: 56px;
+            width: 32px;
             margin: 0 20px 0 0;
+            border: 3px solid $altwhitespace;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.1rem;
+            color: transparent;
         }
-        label {
-            line-height: 32px;
-            cursor: pointer;
+        input:checked + .fake-checkbox{
+            background-color: $altwhitespace;
+            color: #fff
         }
-        a{text-decoration: underline;}
+        a{
+            text-decoration: underline;
+            &:hover {filter: brightness(0.4)}
+        }
     }
     .btn.alt {
         background-color: $altwhitespace;

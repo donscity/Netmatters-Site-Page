@@ -324,10 +324,13 @@
                         <input class="btn text" type="email" id="email" name="email" required>
                     </div>
                 </div>
-                <div class="checkbox">
-                    <input type="checkbox" id="marketinginfo" name="marketinginfo" value="true">
-                    <label for="marketinginfo"><b>Please tick this box if you wish to receive marketing information from us. Please see our <a href="https://www.netmatters.co.uk/privacy-policy">Privacy Policy</a> for more information on how we use your data.</b></label>
-                </div>
+                <label class="checkbox">
+                    <div>
+                        <input type="checkbox" id="marketinginfo" name="marketinginfo" value="true" required>
+                        <div class="fake-checkbox"><i class="fas fa-check"></i></div>
+                    </div>
+                    <b>Please tick this box if you wish to receive marketing information from us. Please see our <a href="https://www.netmatters.co.uk/privacy-policy">Privacy Policy</a> for more information on how we use your data.</b>
+                </label>
                 <input class="btn alt" type="submit" value="Subscribe">
             </form>
         </div>
