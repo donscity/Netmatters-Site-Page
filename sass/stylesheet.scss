@@ -239,7 +239,10 @@ input.btn.text {
     }
     .search {
         display: flex;
+        flex-shrink: 2;
         input {
+            flex-shrink: 2;
+            width: 100%;
             max-width: 240px;
             border-right: 0;
             border-radius: 3px 0 0 3px;
@@ -360,6 +363,7 @@ input.btn.text {
             justify-content: space-evenly;
             &:nth-child(n+2)::before {
                 content: "-";
+                line-height: 2.8rem;
                 margin: auto;
             }
         }
@@ -408,6 +412,8 @@ input.btn.text {
         justify-content: center;
         text-align: center;
         position: absolute;
+        top: 0%;
+        left: 0%;
         background-color: #0007;
         @media (min-width: $md) {
             text-align: left;
@@ -446,7 +452,7 @@ input.btn.text {
         align-items: center;
         text-align: center;
         @media (min-width: $md) {
-            flex: 2 26%;
+            flex: 2 25%;
         }
         >* {
             margin: 0 0 12px 0;
@@ -482,8 +488,8 @@ input.btn.text {
     }
 }
 // -------------------------------------------------------------------------
-@media (min-width: $md) {
-    .page-span.brand {
+.page-span.brand {
+    @media (min-width: $md) {
         background-image: url(../images/logos/branded.png);
         background-position: right;
         background-repeat: no-repeat;
@@ -587,7 +593,7 @@ input.btn.text {
 // ---------------------------------------------------------------------------
 .logos-list {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     .logo {
         position: relative;
     }
