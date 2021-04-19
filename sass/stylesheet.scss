@@ -105,8 +105,8 @@ header {
     border-radius: 3px;
     border: 0px;
     color:#fff;
-    &:hover {
-        filter: brightness(0.9) contrast(125%);
+    &:hover:not(.text):not(.no-hov):not(.social-media) {
+        background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
     }
     background-color: #999aa2;
     &.icon {
@@ -650,13 +650,15 @@ input.btn.text {
     img {
         width: 100%;
         padding: 0 20px;
-        filter: grayscale(100%);
+        display: none;
+    }
+    img.grayscale {
+        display: block;
     }
     .logo:hover {
-        img {filter: grayscale(0%);}
-        .label {
-            display: block;
-        }
+        img {display: block;}
+        img.grayscale {display: none;}
+        .label {display: block}
     }
 }
 // ---------------------------------------------------------------------------
