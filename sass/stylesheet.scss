@@ -217,6 +217,16 @@ input.btn.text {
     justify-content: stretch;
 }
 
+header {    
+    width: 100%;
+    z-index: 15;
+    background-color: #fff;
+}
+header.sticky {
+    position: fixed;
+    top: 0;
+}
+
 .heading {
     background-color: $whitespace;
     display: flex;
