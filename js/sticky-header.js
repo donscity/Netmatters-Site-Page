@@ -1,4 +1,3 @@
-window.onscroll = function() {scrollUp()};
 window.onscroll = function() {scrollDown()};
 
 
