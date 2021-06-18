@@ -206,6 +206,34 @@ input.btn.text {
     .marketing h4 {color: $marketing}
     .security h4 {color: $security}
 }
+//-----------------------------------------------------------------
+#page {
+    position: relative;
+    z-index: 1;
+    &.menu-active{
+        left: -300px;
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 20;
+            width:100%;
+            height:100%;
+            background-color: rgba(0, 0, 0, 0.438);
+        }
+    }
+}
+#side-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    background: #333645;
+    width: 300px;
+    
+}
 
 // ----------------------------------------------------------------
 #top {
@@ -217,7 +245,7 @@ input.btn.text {
     justify-content: stretch;
 }
 
-header {    
+header {   
     width: 100%;
     z-index: 15;
     background-color: #fff;
@@ -225,6 +253,19 @@ header {
 header.sticky {
     position: fixed;
     top: 0;
+    animation: slideDown 0.3s ease-in-out;
+}
+header.scroll-up {
+    animation: slideUp 0.3s ease-in-out;
+    transform: translateY(-100%);
+}
+@keyframes slideDown {
+    0%{transform: translateY(-100%);}
+    100%{transform: translateY(0);}
+}
+@keyframes slideUp {
+    0%{transform: translateY(0);}
+    100%{transform: translateY(-100%);}
 }
 
 .heading {
