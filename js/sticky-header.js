@@ -1,6 +1,6 @@
-window.onscroll = function() {scrollDown()};
 
 
+var page = document.getElementById("page");
 var header = document.querySelector("header");
 var pageTop = document.getElementById("top");
 
@@ -10,15 +10,15 @@ let lastScroll = 0;
 
 let headHeight = header.offsetHeight;
 
-function scrollDown(){ 
-    var currentScroll = window.pageYOffset;
+function scrollMenu(){ 
+    var currentScroll = page.scrollTop;
     if (currentScroll < lastScroll && currentScroll > headHeight){
-        header.classList.remove("scroll-up");
+        header.classList.remove("slide-up");
         header.classList.add("sticky");
         pageTop.style.paddingTop = headHeight+"px";
     } else if (currentScroll > lastScroll){
         if(currentScroll >= headHeight){
-            header.classList.add("scroll-up");
+            header.classList.add("slide-up");
             setTimeout(function(){reset()}, 300);
         } else {
             reset()
@@ -31,3 +31,4 @@ function reset(){
     header.classList.remove("sticky");
     pageTop.style.paddingTop = "0";
 }
+
