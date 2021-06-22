@@ -57,6 +57,7 @@ header {
     flex-direction: column;
     text-transform: uppercase;
 }
+
 .page-span.alt {
     background-color: $altwhitespace;
     color: #fff;
@@ -212,6 +213,7 @@ input.btn.text {
     z-index: 1;
     height: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
     color: $altwhitespace;
     left: 0;
     transition: left 0.3s ease-in-out;
@@ -348,12 +350,14 @@ input.btn.text {
 header {   
     width: 100%;
     z-index: 15;
-    background-color: #fff;
+    background-color: $whitespace;
 }
 header.sticky {
     position: fixed;
     top: 0;
     animation: slideDown 0.3s ease-in-out both;
+    nav {overflow:hidden;}
+    .nav-bar>li:hover {padding-bottom: 43px}
 }
 header.slide-up {
     animation: slideUp 0.3s ease-in-out both;
@@ -574,6 +578,35 @@ header.slide-up {
 
 }
 // ------------------------------------------------------------------------
+.slick, .slick-list, .slick-track, .slick-dotted.slick-slider {
+    margin-bottom: 0;
+    overflow: hidden;
+    height: 100%;
+}
+.slick-dots {
+    bottom: 45px;
+    li button:before {
+        font-size: 12px;
+        color: white;
+        opacity: 0.45;
+    };
+    li.slick-active {
+        button:before{
+            color: white;
+            opacity: 1;
+        }
+        button:after {
+            content: "";
+            position: absolute;
+            top: -2.5px;
+            left: -1px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+    }
+}
 #top .banner {
     background-color: black;
     flex-grow: 1;
