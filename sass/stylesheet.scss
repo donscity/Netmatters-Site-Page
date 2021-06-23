@@ -308,6 +308,8 @@ input.btn.text {
     >li{
         a{
             color: #fff;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.45);
             list-style-type: none;
             display: block;
             padding: 20px;
@@ -318,19 +320,13 @@ input.btn.text {
         }
         >ul{
             list-style-type: "\BB";
-            list-style: none;
+            list-style-position: inside;
             margin: 0;
             padding: 0;
             a{
-                border-top: 1px solid hsla(0,0%,100%,.05);
-                border-bottom: 1px solid rgba(0,0,0,.45);
-                display: block;
-                color: #fff;
                 background-color: rgba(0,0,0,.25);
-                padding: 15px 20px;
-                text-transform: uppercase;
+                padding-left: 0;
                 font-size: .875rem;
-                text-decoration: none;
             }
         }
     }
