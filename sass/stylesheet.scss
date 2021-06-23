@@ -301,34 +301,80 @@ input.btn.text {
 }
 //--------------------------------------------------------------------
 
-#side-menu>ul {
+#side-menu {
+    text-transform: uppercase;
+    font-size: 1rem;
+    text-decoration: none;
+    *{display: block;}
+    nav {
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.27);
+        >ul>li {
+            >* {
+                margin: 20px;
+            }
+            >a {
+                padding: 20px 0;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 3px;
+                box-shadow: 0 0 2px black;
+            }
+            &:hover >a {background-color: rgba(255, 255, 255, 0.05);}
+            >ul {
+                border-radius: 3px;
+                overflow: hidden;
+                li:not(:first-child) {
+                    border-top: 1px solid rgba(255, 255, 255, 0); 
+                }
+                li:not(:last-child) {
+                    border-bottom: 1px solid rgba(0,0,0,.45);
+                }
+
+                a {
+                    background-color: rgba(0,0,0,.25);
+                    padding: 10px;
+                }
+            }
+        }
+        small {
+            font-size: 0.62rem;
+            padding-bottom: 2px;
+        }
+        i {
+            padding-bottom: 10px;
+            font-size: 1.25rem;
+        }
+        .web i {color: $web;}
+        .it i {color: $it;}
+        .telecoms i {color: $telecoms;}
+        .software i {color: $software;}
+        .marketing i {color: $marketing;}
+        .security i {color: $security;}
+    }
+    ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    >li{
+    }
+    >ul>li{
         a{
             color: #fff;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             border-bottom: 1px solid rgba(0, 0, 0, 0.45);
             list-style-type: none;
             display: block;
-            padding: 20px;
-            text-transform: uppercase;
-            font-size: 1rem;
-            text-decoration: none;
-            line-height: 1;
+            padding: 18px;
         }
-        >ul{
-            list-style-type: "\BB";
-            list-style-position: inside;
-            margin: 0;
-            padding: 0;
-            a{
-                background-color: rgba(0,0,0,.25);
-                padding-left: 0;
-                font-size: .875rem;
+        &:hover >a{background-color: rgba(255, 255, 255, 0.05);}
+        >ul a{
+            background-color: rgba(0,0,0,.25);
+            font-size: .875rem;
+            &::before {
+                content: "\BB";
+                padding-right: 15px;
             }
         }
+        
     }
 }
 
