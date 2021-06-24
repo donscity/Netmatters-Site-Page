@@ -238,8 +238,8 @@ input.btn.text {
 }
 .hamburger{
     >*{transform-origin: 50% 31%;}
-    :nth-child(1) {transform: translateY(-25px)}
-    :nth-child(3) {transform: translateY(25px)}
+    :nth-child(1) {transform: translateY(-8px)}
+    :nth-child(3) {transform: translateY(8px)}
 }
 
 @keyframes first {
@@ -258,7 +258,7 @@ input.btn.text {
 @keyframes reverse-first {
     0% {transform: translate3d(0, 0, 0) rotate(135deg);}
     50% {transform: translate3d(0, 0, 0) rotate(0deg);}
-    100% {transform: translate3d(0, -25px, 0) rotate(0deg);}
+    100% {transform: translate3d(0, -8px, 0) rotate(0deg);}
 };
 @keyframes reverse-second {
     0% {transform: rotate(135deg);}
@@ -267,7 +267,7 @@ input.btn.text {
 @keyframes reverse-third {
     0% {transform: translate3d(0, 0, 0) rotate(45deg);}
     50% {transform: translate3d(0, 0, 0) rotate(0deg);}
-    100% {transform: translate3d(0, 25px, 0) rotate(0deg);}
+    100% {transform: translate3d(0, 8px, 0) rotate(0deg);}
 };
 // ---------------------------
 
