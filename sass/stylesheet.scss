@@ -1076,20 +1076,21 @@ footer {
         color: $altwhitespace;
     }
     .text{
-        margin: 20px;
+        margin: 19px;
         p{
             color: #666;
         }
     }
     .btns{
-        
         border-top: 1px solid #e5e5e5;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         justify-content: space-evenly;
         a{
             margin: 20px;
             flex-grow: 1;
+            line-height: 36px;
             text-align: center;
             &.accept{background-color: $web;}
         }
