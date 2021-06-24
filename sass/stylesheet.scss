@@ -1047,3 +1047,52 @@ footer {
 
 // -----------------------------------------------------------------
 
+#cookie-popup {
+    position: absolute;
+    z-index: 30;
+    background-color: rgba(0,0,0,.7);
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .card{
+        max-width: 600px;
+        margin: auto;
+        position: relative;
+        background-color: #fff;
+        border: 1px solid rgba(0,0,0,.2);
+        border-radius: 5px;
+        box-shadow: 0 3px 14px rgba(0,0,0,0.5);
+        background-clip: padding-box;
+    }
+    h3{
+        padding: 15px 20px;
+        border-bottom: 1px solid #e5e5e5;
+        font-size: 1.625rem;
+        line-height: 1.42857143;
+        margin: 0;
+        color: $altwhitespace;
+    }
+    .text{
+        margin: 20px;
+        p{
+            color: #666;
+        }
+    }
+    .btns{
+        
+        border-top: 1px solid #e5e5e5;
+        display: flex;
+        justify-content: space-between;
+        justify-content: space-evenly;
+        a{
+            margin: 20px;
+            flex-grow: 1;
+            text-align: center;
+            &.accept{background-color: $web;}
+        }
+    }
+}
+
