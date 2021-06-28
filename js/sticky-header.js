@@ -8,7 +8,7 @@ var sticky = header.offsetTop;
 
 let lastScroll = 0;
 
-
+page.onscroll = scrollMenu;
 
 function scrollMenu(){ 
     let headHeight = header.offsetHeight;
