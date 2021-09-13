@@ -168,8 +168,8 @@
                     </div>
                 </div>
                 <div class="page-center content-section card-container article">
-
-                    <div class="article card telecoms">
+                    <?php include "php/posts.php" ?>
+                    <!-- <div class="article card telecoms">
                         <a class="btn label" href="https://www.netmatters.co.uk/news/telecoms-services">News</a>
                         <a class="img" href="https://www.netmatters.co.uk/9-questions-to-ask-when-selecting-a-business-telecoms-provider">
                             <img src="images/articles/9-questions-to-3idb.jpg" alt="9 Questions To Ask When Selecting A Business Telecoms Provider"></a>
@@ -223,7 +223,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </section>  
         </main>
