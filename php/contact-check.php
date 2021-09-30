@@ -17,7 +17,7 @@
     }
 
 //       Variable set up
-$name = $email = $phone = $message = "";
+$name = $email = $phone = $subject = $message = "";
 
 //       Error checking and filtering
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -33,6 +33,7 @@ $name = $email = $phone = $message = "";
         } else {
             $email = filter_input( INPUT_POST, "email", FILTER_SANITIZE_EMAIL );
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $emailErr = "Email format incorrect";
                 $error = true;
             }
         }
@@ -44,6 +45,12 @@ $name = $email = $phone = $message = "";
             if (strlen($phone) < 10 || strlen($phone) > 15) {
             $error = true;
             }
+        }
+        
+        if (empty($_POST["subject"])) {
+            $error = true;
+        } else {
+            $subject = filter_input( INPUT_POST, "subject", FILTER_SANITIZE_STRING );
         }
         
         if (empty($_POST["message"])) {
@@ -61,14 +68,15 @@ $name = $email = $phone = $message = "";
             $subject = escape($subject);
             $message = escape($message);
 
-            $sql = "INSERT INTO responses VALUES (NULL, ?, ?, ?, ?)";
+            $sql = "INSERT INTO responses VALUES (NULL, ?, ?, ?, ?, ?)";
     
             try {
                     $results = $db->prepare($sql);
                     $results->bindValue(1, $name, PDO::PARAM_STR);
                     $results->bindValue(2, $email, PDO::PARAM_STR);
                     $results->bindValue(3, $phone, PDO::PARAM_STR);
-                    $results->bindValue(4, $message, PDO::PARAM_STR);
+                    $results->bindValue(4, $subject, PDO::PARAM_STR);
+                    $results->bindValue(5, $message, PDO::PARAM_STR);
                     $submitErr = !$results->execute();
                 } catch (Exception $e) {
                 $submitErr = true;
@@ -77,7 +85,7 @@ $name = $email = $phone = $message = "";
 
             if ($submitErr == false) {
                 $sent = true;
-                $name = $email = $phone = $message = "";
+                $name = $email = $phone = $subject = $message = "";
             }
         }
     }
