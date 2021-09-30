@@ -1,7 +1,7 @@
 <?php
 
     try {
-        $db = new PDO("mysql:host=localhost;port=3306;dbname=donmcgre_netmatters_contact_us", "donmcgre_donmcgregor", "aLnTN1lux{Hx");
+        $db = new PDO("mysql:host=localhost;port=3306;dbname=donmcgre_netmatters_contact_us", "donmcgre_donmcgregor", "lg7vCzpP0;R,");
         $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     } catch (Exception $e) {
         echo "Unable to connect";

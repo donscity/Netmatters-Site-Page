@@ -81,7 +81,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex-reverse">
+                    <div class="flex-reverse content-section">
                         <div>
                             <b>
                             Email us on:
