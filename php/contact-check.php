@@ -33,7 +33,6 @@ $name = $email = $phone = $subject = $message = "";
         } else {
             $email = filter_input( INPUT_POST, "email", FILTER_SANITIZE_EMAIL );
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $emailErr = "Email format incorrect";
                 $error = true;
             }
         }
@@ -96,5 +95,6 @@ $name = $email = $phone = $subject = $message = "";
     }
     catch (exception $e) {
         echo $e->getMessage();
-    } ?>
-    <p> Number of responses: <?php if(!empty($statement)) echo count($statement);?> </p>
+    } 
+?>
+
